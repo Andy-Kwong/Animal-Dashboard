@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Take a look at all these Platypi!</h1>
+    <table>
+        <th>Platypus Name</th>
+    <% for (platy of wholePack) { %>
+        <tr>
+            <td><%= platy.name %></td>
+            <td>
+                <form action="/platy/<%= platy.id %>" method = "get">
+                    <%= platy.id %>
+                    <input type="submit" value = "Show more info">
+                </form>
+            </td>
+            <td>
+                <form action="/platy/edit/<%= platy.id %>" method = "get">
+                    <input type="submit" value = "Edit">
+                </form>
+            </td>
+            <td>
+                <form action="/platy/destroy/<%= platy.id %>" method = "post">
+                    <input type="submit" value = "Delete">
+                </form>
+            </td>
+        </tr>
+    <% } %>
+    </table>
+    <form action="/platy/new" method = "get">
+        <input type="submit" value = "Add New Platypus!">
+    </form>
+</body>
+</html>
